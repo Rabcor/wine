@@ -2750,7 +2750,7 @@ static int get_free_mem_state_callback( void *start, size_t size, void *arg )
     MEMORY_BASIC_INFORMATION *info = arg;
     void *end = (char *)start + size;
 
-    if ((char *)info->BaseAddress + info->RegionSize < (char *)start) return 0;
+    if ((char *)info->BaseAddress + info->RegionSize <= (char *)start) return 0;
 
     if (info->BaseAddress >= end)
     {
